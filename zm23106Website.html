@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>muscleRise - 未来のジブンは、ここから始まる。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --main-color: #1a202c;
+            --accent-color: #f5c518;
+            --base-color: #f7fafc;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            color: var(--main-color);
+        }
+        .bg-main { background-color: var(--main-color); }
+        .text-main { color: var(--main-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .text-accent { color: var(--accent-color); }
+        .border-accent { border-color: var(--accent-color); }
+        .bg-base { background-color: var(--base-color); }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .hero-section {
+            height: 80vh;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1.2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .image-container {
+            position: relative;
+            width: 100%;
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e2e8f0;
+        }
+        .image-container.hero-bg {
+            min-height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="bg-main text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold tracking-wider">muscle<span class="text-accent">Rise</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#concept" class="nav-link">コンセプト</a>
+                <a href="#plans" class="nav-link">プラン</a>
+                <a href="#gallery" class="nav-link">ギャラリー</a>
+                <a href="#faq" class="nav-link">Q&A</a>
+                <a href="#info" class="nav-link">店舗情報</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#concept" class="block py-2">コンセプト</a>
+            <a href="#plans" class="block py-2">プラン</a>
+            <a href="#gallery" class="block py-2">ギャラリー</a>
+            <a href="#faq" class="block py-2">Q&A</a>
+            <a href="#info" class="block py-2">店舗情報</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section relative flex items-center justify-center text-white text-center">
+            <div class="image-container hero-bg">
+                <div class="loader"></div>
+                <img id="hero-bg-image" class="brightness-50" alt="活気のあるトレーニングジムの背景">
+            </div>
+            <div class="z-10 p-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-xl">眠れる筋肉を呼び覚ませ。</h1>
+                <p class="text-xl md:text-3xl font-light drop-shadow-xl">未来のジブンは、ここから始まる。</p>
+            </div>
+        </section>
+        
+        <section id="concept" class="py-20 bg-base">
+            <div class="container mx-auto px-6">
+                <div class="md:flex md:items-center md:space-x-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <div class="image-container rounded-lg shadow-xl overflow-hidden">
+                            <div class="loader"></div>
+                            <img id="concept-image" alt="様々な年代の人がトレーニングしている様子">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-4">誰もが、自分のペースで。</h2>
+                        <p class="text-lg leading-relaxed">
+                            初心者から上級者まで、誰もが自分に合ったトレーニングを見つけられる場所。豊富な最新マシンと、誰もが始めやすい価格設定で、あなたの「なりたい自分」への挑戦を全力でサポートします。年齢や経験は関係ありません。昨日より一歩進んだ自分に出会う、そのための空間がここにあります。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">選べる料金プラン</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card bg-white rounded-lg shadow-xl overflow-hidden text-center border-t-4 border-accent">
+                        <div class="image-container">
+                            <div class="loader"></div>
+                            <img id="plan-image-1" alt="昼間の空いているジム">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">デイタイムプラン</h3>
+                            <p class="text-gray-600 mb-4">平日の昼間にお得にご利用可能。</p>
+                        </div>
+                    </div>
+                    <div class="card bg-main text-white rounded-lg shadow-xl overflow-hidden text-center transform md:scale-110">
+                        <div class="image-container">
+                            <div class="loader"></div>
+                            <img id="plan-image-2" alt="夜にトレーニングする男性">
+                        </div>
+                        <div class="p-6">
+                             <span class="bg-accent text-main text-xs font-semibold px-3 py-1 rounded-full uppercase absolute -top-3 right-4">人気No.1</span>
+                            <h3 class="text-2xl font-bold mb-2">スタンダードプラン</h3>
+                            <p class="text-gray-300 mb-4">いつでも好きな時に利用可能。</p>
+                        </div>
+                    </div>
+                    <div class="card bg-white rounded-lg shadow-xl overflow-hidden text-center border-t-4 border-accent">
+                         <div class="image-container">
+                            <div class="loader"></div>
+                            <img id="plan-image-3" alt="パーソナルトレーナーの指導">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-2">パーソナルサポート</h3>
+                            <p class="text-gray-600 mb-4">トレーナーがマンツーマンで指導。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-20 bg-base">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">ギャラリー</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="image-container col-span-2 rounded-lg shadow-lg overflow-hidden h-80">
+                        <div class="loader"></div>
+                        <img id="gallery-image-1" alt="広々としたマシンエリア">
+                    </div>
+                    <div class="image-container rounded-lg shadow-lg overflow-hidden h-80">
+                         <div class="loader"></div>
+                        <img id="gallery-image-2" alt="トレーニングに励む多様なメンバー">
+                    </div>
+                    <div class="image-container col-span-2 md:col-span-1 rounded-lg shadow-lg overflow-hidden h-80">
+                         <div class="loader"></div>
+                        <img id="gallery-image-3" alt="清潔なロッカールーム">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-bold text-center mb-12">よくあるご質問</h2>
+                <div class="space-y-4">
+                    <details class="bg-base p-6 rounded-lg shadow-md group">
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Q. ジムは初めてで、マシンの使い方が全くわかりません。<span class="transform transition-transform duration-300 group-open:rotate-45 text-accent font-bold text-2xl">+</span></summary>
+                        <p class="mt-4 text-gray-700">A. ご安心ください。スタッフが常に巡回しており、いつでもお声がけいただけます。また、初心者の方には初回オリエンテーションで基本的なマシンの使い方をご説明しています。</p>
+                    </details>
+                     <details class="bg-base p-6 rounded-lg shadow-md group">
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Q. 見学や体験はできますか？<span class="transform transition-transform duration-300 group-open:rotate-45 text-accent font-bold text-2xl">+</span></summary>
+                        <p class="mt-4 text-gray-700">A. はい、可能です。営業時間内であればいつでもご見学いただけます。また、お得なワンコイン体験（500円）もご用意しておりますので、ぜひ施設の雰囲気やマシンをお試しください。</p>
+                    </details>
+                     <details class="bg-base p-6 rounded-lg shadow-md group">
+                        <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Q. 入会時に必要なものは何ですか？<span class="transform transition-transform duration-300 group-open:rotate-45 text-accent font-bold text-2xl">+</span></summary>
+                        <p class="mt-4 text-gray-700">A. ご本人様確認書類（運転免許証など）、金融機関のキャッシュカード、入会金、初月分の会費が必要となります。詳細はスタッフまでお問い合わせください。</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="py-20 bg-base">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">店舗情報</h2>
+                <div class="md:flex md:space-x-12 bg-white p-8 rounded-lg shadow-xl">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">muscle<span class="text-accent">Rise</span> 東京丸の内店</h3>
+                        <p class="mb-2"><strong>住所:</strong> 東京都千代田区丸の内X-X-X</p>
+                        <p class="mb-2"><strong>営業時間:</strong> 24時間営業 (スタッフアワー: 9:00 - 22:00)</p>
+                        <p class="mb-2"><strong>電話番号:</strong> 03-9876-5432</p>
+                        <p class="mb-4"><strong>アクセス:</strong> JR東京駅 丸の内中央口より徒歩5分</p>
+                        <a href="#" class="bg-accent text-main font-bold py-3 px-6 rounded hover:bg-yellow-500 transition-colors">今すぐ入会する</a>
+                    </div>
+                    <div class="md:w-1/2">
+                        <iframe class="w-full h-80 rounded-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.485108422368!2d139.695738815259!3d35.68963428019236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188cd0d6b1ba1f%3A0x1c32a1f1ecacfdd5!2z5p2x5Lqs6YO95b255ZKM!5e0!3m2!1sja!2sjp!4v1668833958933!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-main text-white text-center py-8">
+        <p>© <span id="current-year"></span> muscleRise All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // フッターの年号
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 画像情報
+        const imagesToLoad = [
+            { id: 'hero-bg-image', prompt: 'A modern, spacious, and well-equipped gym with dramatic lighting. Silhouettes of people working out on various machines in the background. Energetic and motivational atmosphere. cinematic, photorealistic, 8k.' },
+            { id: 'concept-image', prompt: 'A diverse group of people of all ages, from young adults to seniors, smiling and working out together in a bright and clean gym. The image should convey a sense of community and inclusivity. natural lighting, photorealistic.' },
+            { id: 'plan-image-1', prompt: 'A woman in her 40s is peacefully using a treadmill in a sunlit gym during the daytime. The gym is not crowded, creating a calm and focused atmosphere. photorealistic.' },
+            { id: 'plan-image-2', prompt: 'A man in his 30s is weight training in a busy, energetic gym in the evening. The scene is dynamic, with many people focused on their workouts. photorealistic, dynamic lighting.' },
+            { id: 'plan-image-3', prompt: 'A friendly personal trainer is guiding a beginner woman on how to use a weight machine correctly. The atmosphere is supportive and encouraging. close-up shot, photorealistic.' },
+            { id: 'gallery-image-1', prompt: 'Wide-angle shot of a large, modern gym floor filled with rows of state-of-the-art fitness equipment, including treadmills, weight machines, and free weights. The space is clean, organized, and brightly lit. architectural photography, photorealistic.' },
+            { id: 'gallery-image-2', prompt: 'A collage-style image showing different people working out: a young man lifting weights, a woman in a yoga pose, a senior man on a stationary bike. All look happy and healthy. vibrant colors, photorealistic.' },
+            { id: 'gallery-image-3', prompt: 'A shot of a clean, modern locker room in a gym. Showers, lockers, and benches are pristine. The lighting is bright and inviting. interior photography, photorealistic.' }
+        ];
+
+        // 画像を1枚ずつ生成・表示
+        const loadImage = async (imageInfo) => {
+            const imgElement = document.getElementById(imageInfo.id);
+            const container = imgElement.parentElement;
+            const loader = container.querySelector('.loader');
+            try {
+                const encodedPrompt = encodeURIComponent(imageInfo.prompt.replace(/\s+/g, ' '));
+                const response = await fetch(`https://image.pollinations.ai/prompt/${encodedPrompt}`);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const blob = await response.blob();
+                imgElement.src = URL.createObjectURL(blob);
+                imgElement.onload = () => {
+                    loader.style.display = 'none';
+                    imgElement.style.display = 'block';
+                    URL.revokeObjectURL(imgElement.src);
+                };
+            } catch (error) {
+                console.error('Image loading failed:', error);
+                loader.style.display = 'none';
+                container.innerHTML += '<p class="text-red-500 text-xs p-2">画像読み込みエラー</p>';
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            for (const imageInfo of imagesToLoad) {
+                await loadImage(imageInfo);
+            }
+        });
+    </script>
+
+</body>
+</html>
