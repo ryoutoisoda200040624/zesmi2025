@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>muscleRise - 最高の自分を、今から育む。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'main-dark': '#0F172A', // Slate Gray 900
+                        'accent-red': '#EF4444', // Red 500
+                        'base-light': '#F8FAFC', // Slate Gray 50
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'], // 見出し・本文共通だが太さでメリハリ
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* カスタムローディングスピナー */
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #EF4444; /* アクセントカラー */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-base-light font-sans text-main-dark">
+
+    <header class="bg-main-dark text-base-light shadow-lg fixed w-full z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-extrabold tracking-wider text-accent-red">muscleRise</a>
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#concept" class="hover:text-accent-red transition duration-300">コンセプト</a>
+                    <a href="#menu" class="hover:text-accent-red transition duration-300">サービス</a>
+                    <a href="#gallery" class="hover:text-accent-red transition duration-300">ギャラリー</a>
+                    <a href="#faq" class="hover:text-accent-red transition duration-300">Q&A</a>
+                    <a href="#location" class="hover:text-accent-red transition duration-300">店舗情報</a>
+                </nav>
+                </div>
+        </div>
+    </header>
+
+    <main class="pt-16">
+        <section id="hero" class="relative h-[60vh] md:h-[80vh] flex items-center justify-center text-center bg-gray-700">
+            <div id="hero-image-container" class="absolute inset-0 bg-cover bg-center transition-opacity duration-500" role="img" aria-label="ジムのヒーロー背景">
+                <div class="absolute inset-0 bg-main-dark opacity-60"></div> <div id="hero-loader" class="absolute inset-0 flex items-center justify-center">
+                    <div class="loader"></div>
+                </div>
+                <img id="hero-image" src="" alt="トレーニングジムの広々とした様子" class="w-full h-full object-cover hidden">
+            </div>
+            <div class="relative z-10 p-4 max-w-4xl">
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-base-light leading-tight drop-shadow-lg">
+                    始める一歩が、未来の自信に。
+                </h1>
+                <p class="mt-4 text-xl sm:text-2xl font-medium text-base-light drop-shadow-md">
+                    豊富なマシンと安心価格で、あなたの成長を支える。
+                </p>
+            </div>
+        </section>
+
+        <section id="concept" class="py-16 md:py-24 bg-base-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-main-dark text-center mb-12">コンセプト</h2>
+                <div class="md:flex items-center gap-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <div id="concept-image-container" class="w-full h-80 bg-gray-200 flex items-center justify-center rounded-lg shadow-xl overflow-hidden">
+                             <div id="concept-loader" class="loader"></div>
+                            <img id="concept-image" src="" alt="目標に向かってストレッチする人のイメージ" class="w-full h-full object-cover hidden">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <span class="text-lg font-semibold text-accent-red uppercase tracking-wider">Raise Your Best.</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4 text-main-dark">最高の自分を、今から育む。</h3>
+                        <p class="text-lg leading-relaxed text-gray-600">
+                            「muscleRise」は、単なる肉体改造の場ではなく、**「年齢や経験を問わず、誰もが自己ベストを更新できる場所」**を提供します。
+                            最新鋭の豊富なマシンラインナップと、手の届きやすい価格設定で、日々のトレーニングを生活の一部とし、お客様一人ひとりの**「最高の自分」**への成長をサポートします。
+                            目標がダイエットでも、健康維持でも、本格的なボディメイクでも、その一歩を応援します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-16 md:py-24 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-main-dark text-center mb-12">豊富なサービスラインナップ</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                        <div id="menu1-image-container" class="w-full h-56 bg-gray-200 flex items-center justify-center">
+                            <div id="menu1-loader" class="loader"></div>
+                            <img id="menu1-image" src="" alt="フリーウェイトエリアの画像" class="w-full h-full object-cover hidden">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-main-dark">ベーシック・フリーウェイト・エリア</h3>
+                            <p class="mt-2 text-gray-600">
+                                **【圧倒的な設備】** 初心者から上級者まで満足できる、多種多様な高負荷フリーウェイト設備を完備。あなたの限界への挑戦をサポートします。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                        <div id="menu2-image-container" class="w-full h-56 bg-gray-200 flex items-center justify-center">
+                            <div id="menu2-loader" class="loader"></div>
+                            <img id="menu2-image" src="" alt="最新のカーディオマシンが並ぶエリア" class="w-full h-full object-cover hidden">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-main-dark">カーディオ・テクノロジー・ゾーン</h3>
+                            <p class="mt-2 text-gray-600">
+                                **【有酸素運動を楽しく】** 最新のトレッドミル、エリプティカル、バイクなどを大量導入。全機種にエンターテイメント機能を搭載し、飽きさせない有酸素運動を提供します。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                        <div id="menu3-image-container" class="w-full h-56 bg-gray-200 flex items-center justify-center">
+                            <div id="menu3-loader" class="loader"></div>
+                            <img id="menu3-image" src="" alt="トレーナーが指導している様子" class="w-full h-full object-cover hidden">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-main-dark">パーソナル・サポート・オプション</h3>
+                            <p class="mt-2 text-gray-600">
+                                **【安心の標準価格】** リーズナブルな月額料金に加えて、希望者にはスポットでプロトレーナーによる個別指導を提供。効率的かつ安全な目標達成をサポートします。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-16 md:py-24 bg-base-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-main-dark text-center mb-12">ギャラリー: ジムの雰囲気</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="h-64 bg-gray-200 rounded-lg shadow-md overflow-hidden flex items-center justify-center">
+                         <div id="gallery1-loader" class="loader"></div>
+                        <img id="gallery1-image" src="" alt="広々とした空間に並ぶ最新鋭のマシン" class="w-full h-full object-cover hidden">
+                    </div>
+                    <div class="h-64 bg-gray-200 rounded-lg shadow-md overflow-hidden flex items-center justify-center">
+                         <div id="gallery2-loader" class="loader"></div>
+                        <img id="gallery2-image" src="" alt="笑顔でトレーニングする利用者とトレーナー" class="w-full h-full object-cover hidden">
+                    </div>
+                    <div class="h-64 bg-gray-200 rounded-lg shadow-md overflow-hidden flex items-center justify-center">
+                         <div id="gallery3-loader" class="loader"></div>
+                        <img id="gallery3-image" src="" alt="清潔でモダンなロッカールームとストレッチエリア" class="w-full h-full object-cover hidden">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="faq" class="py-16 md:py-24 bg-gray-100">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-main-dark text-center mb-12">よくある質問 (Q&A)</h2>
+                
+                <div class="space-y-4">
+                    <details class="bg-white p-5 rounded-lg shadow-lg">
+                        <summary class="font-bold text-xl cursor-pointer text-main-dark hover:text-accent-red transition duration-300">
+                            Q1: トレーニング初心者でも大丈夫ですか？
+                        </summary>
+                        <p class="mt-3 text-gray-600 border-t pt-3">
+                            はい、ご安心ください。「muscleRise」は幅広い年代の方が通われており、初心者向けの使いやすいマシンも豊富です。ご希望に応じて、オリエンテーションやパーソナルサポート（オプション）もご利用いただけます。
+                        </p>
+                    </details>
+                    
+                    <details class="bg-white p-5 rounded-lg shadow-lg">
+                        <summary class="font-bold text-xl cursor-pointer text-main-dark hover:text-accent-red transition duration-300">
+                            Q2: 月額料金以外に追加でかかる費用はありますか？
+                        </summary>
+                        <p class="mt-3 text-gray-600 border-t pt-3">
+                            基本的には、ご契約いただいたプランの月額料金のみです。タオルやウェアのレンタル、パーソナル指導をご利用になる場合は、別途オプション料金が発生します。
+                        </p>
+                    </details>
+                    
+                    <details class="bg-white p-5 rounded-lg shadow-lg">
+                        <summary class="font-bold text-xl cursor-pointer text-main-dark hover:text-accent-red transition duration-300">
+                            Q3: 混雑する時間帯はありますか？
+                        </summary>
+                        <p class="mt-3 text-gray-600 border-t pt-3">
+                            平日の夕方（18時～21時）が比較的混雑します。平日の午前中や土日祝日は比較的スムーズにご利用いただけます。アプリでリアルタイムの混雑状況を確認できます。
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="py-16 md:py-24 bg-base-light">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-main-dark text-center mb-12">店舗情報</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-white rounded-lg shadow-xl border-l-4 border-accent-red">
+                            <h3 class="text-2xl font-bold text-main-dark mb-3">muscleRise 渋谷店 (サンプル)</h3>
+                            <p class="text-lg text-gray-700"><strong>住所:</strong> 〒150-0043 東京都渋谷区道玄坂1-2-3 muscleRiseビル 1F</p>
+                            <p class="text-lg text-gray-700"><strong>営業時間:</strong> 平日: 10:00 - 23:00 / 土日祝: 10:00 - 21:00</p>
+                            <p class="text-lg text-gray-700"><strong>定休日:</strong> 毎月第3火曜日、年末年始</p>
+                            <p class="text-lg text-gray-700"><strong>電話番号:</strong> 03-5555-8888</p>
+                            <p class="mt-4 text-sm text-gray-500">※詳細な店舗情報は各店舗ページをご確認ください。</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-main-dark mb-3">アクセス</h3>
+                        <div class="h-80 bg-gray-300 rounded-lg shadow-xl overflow-hidden">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.693155106956!2d139.6993420760468!3d35.65954673323067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b56f8742d13%3A0x28974a9829f076c8!2z5Z2C55Sw!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="muscleRise 渋谷店の地図">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
